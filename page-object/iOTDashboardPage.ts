@@ -8,6 +8,9 @@ export class IOTDashboardPage  {
         this.page = page
     }
 
+    /**
+     * This is a function which clicks on the light button and checks if the text if OFF
+     */
     async clickOnTheLightButton() {
         const lightOnOffButton = this.page.locator('nb-card', {hasText:"Light"});
         await lightOnOffButton.click();
