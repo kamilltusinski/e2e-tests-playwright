@@ -7,6 +7,6 @@ test.beforeEach( async({page}) => {
 
 test('click on the light button', async({page}) => { 
     const pm = new PageManager(page)
-    await pm.onIOTDashboardPage().clickOnTheLightButton()
-    
+    await pm.onIOTDashboardPage().turnsOffOnTheLightButton()
+    await pm.onIOTDashboardPage().turnsOffOnTheLightButton()
 })  
