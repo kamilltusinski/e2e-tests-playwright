@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "pageObjects-chrome": "npx playwright test iOTDashboard.spec.ts --project=chrome",
+    "pageObjects-chrome": "npx playwright test iOTDashboard.spec.ts --project=chromium",
     "pageObjects-mobile": "npx playwright test iOTDashboard.spec.ts --project=mobile"
   },
   "dependencies": {
