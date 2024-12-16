@@ -52,4 +52,19 @@ export class IOTDashboardPage  {
             await expect(textButtonOn).toContainText('ON') 
         }
     }
+
+    async changeTheTemperatureWithTheSlider(){
+        const temperatureBox = this.page.locator('[tabtitle="Temperature"] ngx-temperature-dragger')
+        await temperatureBox.scrollIntoViewIfNeeded()
+        const boundingBox = await temperatureBox.boundingBox()
+        const x = boundingBox.x + boundingBox.width / 2
+        const y = boundingBox.y + boundingBox.height / 2
+        await this.page.mouse.move(x,y)
+        await this.page.mouse.down()
+        await this.page.mouse.move(x + 100, y)
+        await this.page.mouse.move(x + 50, y + 100)
+        await this.page.mouse.up()
+        await expect(temperatureBox).toContainText('30')
+
+    }
 }
