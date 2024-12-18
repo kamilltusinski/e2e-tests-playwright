@@ -53,6 +53,9 @@ export class IOTDashboardPage  {
         }
     }
 
+    /**
+     * This method changes the temperature to 30 degree Celsius with the slider
+     */
     async changeTheTemperatureWithTheSlider(){
         const temperatureBox = this.page.locator('[tabtitle="Temperature"] ngx-temperature-dragger')
         await temperatureBox.scrollIntoViewIfNeeded()
@@ -67,4 +70,5 @@ export class IOTDashboardPage  {
         await expect(temperatureBox).toContainText('30')
 
     }
+
 }

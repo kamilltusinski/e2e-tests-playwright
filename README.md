@@ -1,4 +1,4 @@
-# E2E Automated tests for Playwright website
+# E2E Automated tests for web application
 
 ## Installation
 
@@ -11,7 +11,7 @@ npm install playwright@latest
 ## Usage
 ```python
 # Execution of tests
-npx playwright test
+npx playwright test --headed
 ```
 
 
