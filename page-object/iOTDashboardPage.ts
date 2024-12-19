@@ -65,10 +65,27 @@ export class IOTDashboardPage  {
         await this.page.mouse.move(x,y)
         await this.page.mouse.down()
         await this.page.mouse.move(x + 100, y)
-        await this.page.mouse.move(x + 50, y + 100)
+        await this.page.mouse.move(x + 100, y + 100)
         await this.page.mouse.up()
         await expect(temperatureBox).toContainText('30')
 
     }
 
+    /**
+     * This method changes the humidity to 50% with the slider 
+     */
+    async changeTheHumidityWithTheSlider() {
+        const humidityTab = this.page.locator('nb-card li .ng-star-inserted', {hasText:"Humidity"})
+        await humidityTab.click()
+        const humidityBox = this.page.locator('[tabtitle="Humidity"] ngx-temperature-dragger')
+        await humidityBox.scrollIntoViewIfNeeded()
+        const boundingBox = await humidityBox.boundingBox()
+        const x = boundingBox.x + boundingBox.width / 2
+        const y = boundingBox.y + boundingBox.height / 2
+        await this.page.mouse.move(x,y)
+        await this.page.mouse.down()
+        await this.page.mouse.move(x, y - 100)
+        await this.page.mouse.up()
+        await expect(humidityBox).toContainText('50')
+    }
 }

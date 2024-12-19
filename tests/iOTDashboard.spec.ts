@@ -34,3 +34,8 @@ test('moves the temperature to 30 degrees Celsius', async({page})=>{
     const pm = new PageManager(page)
     await pm.onIOTDashboardPage().changeTheTemperatureWithTheSlider()
 })
+
+test('moves the humadity to 50%', async({page}) => {
+    const pm = new PageManager(page)
+    await pm.onIOTDashboardPage().changeTheHumidityWithTheSlider()
+})
