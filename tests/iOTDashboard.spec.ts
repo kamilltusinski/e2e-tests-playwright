@@ -39,3 +39,8 @@ test('moves the humadity to 50%', async({page}) => {
     const pm = new PageManager(page)
     await pm.onIOTDashboardPage().changeTheHumidityWithTheSlider()
 })
+
+test('color', async({page})=> {
+    const pm = new PageManager(page)
+    await pm.onIOTDashboardPage().checkTheRoomBorderLine()
+})

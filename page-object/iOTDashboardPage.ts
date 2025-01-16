@@ -88,4 +88,18 @@ export class IOTDashboardPage  {
         await this.page.mouse.up()
         await expect(humidityBox).toContainText('50')
     }
-}
+
+    /**
+     * This method checks the colour of the room border line
+     */
+    async checkTheRoomBorderLine() {
+        const roomElement = this.page.locator('.room-selector svg g text', {hasText:"Bedroom"})
+        await roomElement.click({force:true})
+        const borderLineElemenet = this.page.locator('nb-card .room-border.room-border-glow').last()
+        const borderLineColour = await borderLineElemenet.evaluate( (el) => {
+            return window.getComputedStyle(el).getPropertyValue('stroke')
+        })
+        expect(borderLineColour).toContain('51, 102, 255')
+   
+    }
+    }
